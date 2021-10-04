@@ -24,7 +24,14 @@
   "description": "App for comp229 week4 assignment\t",
   "main": "server.js",
   "devDependencies": {},
-
   "author": "Mohit Verma",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mr-mohit/COMP229-Assignment1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mr-mohit/COMP229-Assignment1/issues"
+  },
+  "homepage": "https://github.com/mr-mohit/COMP229-Assignment1#readme"
 }
