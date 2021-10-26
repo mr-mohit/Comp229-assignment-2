@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col">
+    <header><h1><%= title %></h1></header>
+    <% if(displayName) { %>
+        <a href="/contacts/add" id="addButton" class="btn btn-primary mb-1"><i class="fas fa-plus-circle"></i> Add Business Contact</a>
+    <% } %>
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Email</th>
+                <th scope="col">Blood Group</th>
+                <% if(displayName) { %>
+                <th>Edit</th>
+                <th>Delete</th>
+                <% } %>
+            </tr>
+        </thead>
+        <tbody>
+
+            <!-- Sorting contacts by First Name using EJS-->
+            <% for(let x = 0; x < contacts.length; x++) { %>
+            <%      for (let j = 0; j < contacts.length -1; j++) { %>
+            <%          if (contacts[j].firstname > contacts[j + 1].firstname) { %>
+            <%              let temp = contacts[j]; %>
+            <%              contacts[j] = contacts[j + 1]; %>
+            <%              contacts[j + 1] = temp; %>
+            <%  }}} %>
+
+            <!-- Repeatable Row Template -->   
+
+            <% for(let count = 0; count < contacts.length; count++) { %>
+            
+            <tr>
+                <th scope="row"><%= count + 1 %></th>
+                <td><%= contacts[count].firstname %></td>
+                <td><%= contacts[count].lastname %></td>
+                <td><%= contacts[count].phone %></td>
+                <td><%= contacts[count].email %></td>
+                <td><%= contacts[count].bloodgroup %></td>
+                <% if(displayName) { %>
+                    <td class="text-center"><a href="/contacts/edit/<%= contacts[count]._id %>" class="btn btn-primary btn-sm edit"><i class="fas fa-edit fa-sm"></i> Edit </a></td>
+                    <td class="text-center"><a href="/contacts/delete/<%= contacts[count]._id %>" class="btn btn-danger btn-sm delete"><i class="fas fa-trash-alt fa-sm"></i> Delete</a></td>
+                <% } %>
+            </tr>
+            <% } %>
+
+        </tbody>
+    </table>
+</div>
