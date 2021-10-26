@@ -1,4 +1,4 @@
- <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">COMP229 - Mohit Verma</a>
         <img src="/Assets/images/Logo.png" id="logo"> 
@@ -36,6 +36,14 @@
               <a class="nav-link" href="/projects"><i class="fas fa-lg fa-dharmachakra"></i> Projects</a>
               <% } %>
             </li>
+            <!-- Scientist List Secure Area and Authentication Links -->
+            <li class="nav-item">
+              <% if (title == "Scientist") { %>
+              <a class="nav-link active" href="/scientist"><i class="fas fa-lg fa-brain"></i> Scientist</a>
+              <% } else { %>
+              <a class="nav-link" href="/scientist"><i class="fas fa-lg fa-brain"></i> Scientist</a>
+               <% } %>
+            </li>
             <li class="nav-item">
               <% if (title == "Contact") { %>
               <a class="nav-link active" href="/contact"><i class="fas fa-lg fa-phone"></i> Contact</a>
@@ -43,6 +51,25 @@
               <a class="nav-link" href="/contact"><i class="fas fa-lg fa-phone"></i> Contact</a>
               <% } %>
             </li>
+
+            <% if (displayName) { %>
+              <li class="navbar-text"><i class="fas fa-lg fa-user"></i> Welcome, <%= displayName %></li>
+              <li class="nav-item">
+                <% if (title == "Logout") { %>
+                <a class="nav-link active" href="/logout"><i class="fas fa-lg fa-sign-out-alt"></i> Logout</a>
+                <% } else { %>
+                <a class="nav-link" href="/logout"><i class="fas fa-lg fa-sign-out-alt"></i> Logout</a>
+                <% } %>
+              </li>
+            <% } else { %>
+              <li class="nav-item">
+                <% if (title == "Login") { %>
+                <a class="nav-link active" href="/login"><i class="fas fa-lg fa-sign-in-alt"></i> Login</a>
+                <% } else { %>
+                <a class="nav-link" href="/login"><i class="fas fa-lg fa-sign-in-alt"></i> Login</a>
+                <% } %>
+              </li>
+              <% } %>
           </ul>
         </div>
       </div>

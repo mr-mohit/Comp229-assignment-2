@@ -1,0 +1,21 @@
+ <!-- Header Section -->
+ <%- include('partials/header.ejs') %>
+
+ <!-- Main Navigation -->
+ <%- include('partials/mainNav.ejs') %>
+ 
+ <!-- Error Content -->
+ <main class="container mt-5">
+     <h1><%= message %></h1>
+     <h2><%= error.status %></h2>
+ </main>
+ 
+ <!-- Margin Below -->
+ <hr class="marginBelow">
+ 
+ <!-- Bottom Navigation -->
+ <%- include('./partials/bottomNav.ejs') %>
+ 
+ <!-- Footer Section -->
+ <%- include('./partials/footer.ejs') %>
+ 
